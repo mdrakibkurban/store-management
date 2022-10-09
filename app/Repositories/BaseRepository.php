@@ -25,7 +25,7 @@ class BaseRepository implements IBaseRepository
     {
         $data =$this->model->find($id);
         if(!$data){
-            
+            flash('Data not found')->error();
         }else{
             $data->delete();
             flash('Successfully Deleted')->success();
