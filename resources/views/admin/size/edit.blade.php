@@ -3,7 +3,7 @@
 @section('title-content')
 <div class="row mb-2">
     <div class="col-sm-6">
-      <h1 class="m-0">Brand</h1>
+      <h1 class="m-0">Size</h1>
     </div><!-- /.col -->
     <div class="col-sm-6">
       <ol class="breadcrumb float-sm-right">
@@ -23,20 +23,20 @@
             <!-- general form elements -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title mt-2">Brand Edit</h3>
+                <h3 class="card-title mt-2">Size Edit</h3>
       
                 <div class="card-tools">
-                      <a href="{{ route('brands.index')}}" class="btn btn-success"><i class="fas fa-list"></i> Brand List</a>
+                      <a href="{{ route('sizes.index')}}" class="btn btn-success"><i class="fas fa-list"></i> Size List</a>
                 </div>
               </div>
-                  <form action="{{ route('brands.update',$brand->id)}}" method="post">
+                  <form action="{{ route('sizes.update',$size->id)}}" method="post">
                         @csrf
                         @method('put')
                       <div class="card-body">
                           <div class="form-group">
-                            <label for="name">brand Name</label>
-                            <input type="text" class="form-control" id="name" value="{{ $brand->name }}" name="name">
-                            @error('name')
+                            <label for="name">Size</label>
+                            <input type="text" class="form-control" id="name" value="{{ $size->size }}" name="size">
+                            @error('size')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                           </div>

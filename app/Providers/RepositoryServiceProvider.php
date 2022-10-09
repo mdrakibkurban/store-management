@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use App\Interfaces\IBrandRepository;
 use App\Interfaces\ICategoryRepository;
+use App\Interfaces\ISizeRepository;
 use App\Repositories\BrandRepository;
 use App\Repositories\CategoryRepository;
+use App\Repositories\SizeRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -19,6 +21,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(ICategoryRepository::class, CategoryRepository::class);
         $this->app->bind(IBrandRepository::class, BrandRepository::class);
+        $this->app->bind(ISizeRepository::class, SizeRepository::class);
     }
 
     /**

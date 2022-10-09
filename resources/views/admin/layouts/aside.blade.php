@@ -55,6 +55,16 @@
                 </p>
               </a>
             </li>
+
+
+            <li class="nav-item">
+              <a href="{{ route('sizes.index')}}" class="nav-link {{ (request()->is('sizes')) ? 'active' : '' }}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Size
+                </p>
+              </a>
+            </li>
           
         
         </ul>

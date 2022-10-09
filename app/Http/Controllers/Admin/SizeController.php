@@ -3,17 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Interfaces\IBrandRepository;
+use App\Interfaces\ISizeRepository;
 use Illuminate\Http\Request;
 
-class BrandController extends Controller
+class SizeController extends Controller
 {
+    protected $sizeRepo;
 
-    protected $brandRepo;
-
-    public function __construct(IBrandRepository  $brandRepo)
+    public function __construct(ISizeRepository $sizeRepo)
     {
-        $this->brandRepo = $brandRepo;
+        $this->sizeRepo =$sizeRepo;
     }
     /**
      * Display a listing of the resource.
@@ -22,8 +21,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-         $data['brands'] = $this->brandRepo->myGet();
-         return view('admin.brand.index',$data);
+         $data['sizes'] = $this->sizeRepo->myGet();
+         return view('admin.size.index',$data);
     }
 
     /**
@@ -33,7 +32,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('admin.brand.create');
+        return view('admin.size.create');
     }
 
     /**
@@ -44,11 +43,11 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
-             'name' => 'required'
-         ]);
-         $this->brandRepo->brandStore($request);
-         return redirect()->back();
+        $request->validate([
+            'size' => 'required'
+        ]);
+        $this->sizeRepo->sizeStore($request);
+        return redirect()->back();
     }
 
     /**
@@ -70,11 +69,11 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        $brand = $this->brandRepo->myFind($id);
-        if(!$brand){
-            return redirect('/sizes');
+        $size = $this->sizeRepo->myFind($id);
+        if(!$size){
+            return redirect('/brands');
         }
-        $data['brand'] =  $brand ;
+        $data['size'] = $size ;
         return view('admin.size.edit',$data);
     }
 
@@ -88,10 +87,10 @@ class BrandController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required'
+            'size' => 'required'
         ]);
-        $this->brandRepo->brandUpdate($request,$id);
-        return redirect()->route('brands.index');
+        $this->sizeRepo->sizeUpdate($request,$id);
+        return redirect()->route('sizes.index');
     }
 
     /**
@@ -102,8 +101,7 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        
-        $brand = $this->brandRepo->myDelete($id);
+        $brand = $this->sizeRepo->myDelete($id);
         return redirect()->back();
     }
 }
