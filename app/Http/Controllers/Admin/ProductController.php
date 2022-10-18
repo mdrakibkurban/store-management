@@ -3,20 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Interfaces\ICategoryRepository;
-use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
-
-    protected $categoryRepo;
-
-    public function __construct(ICategoryRepository $categoryRepo)
-    {
-        $this->categoryRepo = $categoryRepo;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -24,8 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-         $data['categories'] = $this->categoryRepo->myGet();
-         return view('admin.category.index',$data);
+        $data['products'] = Product::latest()->get();
+        return view('admin.product.index',$data);
     }
 
     /**
@@ -35,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.product.create');
     }
 
     /**
@@ -46,12 +37,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
-              'name'=>'required'
-         ]);
-
-        $this->categoryRepo->categoryStore($request);
-        return redirect()->back();
+        //
     }
 
     /**
@@ -73,12 +59,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-         $category = $this->categoryRepo->myFind($id);
-         if(!$category){
-            return redirect('/categories');
-         }
-         $data['category'] =  $category ;
-         return view('admin.category.edit',$data);
+        //
     }
 
     /**
@@ -90,12 +71,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $request->validate([
-            'name'=> 'required|unique:categories,name,'.$id,
-         ]);
-
-          $this->categoryRepo->categoryUpdate($request,$id);
-          return redirect()->route('categories.index');
+        //
     }
 
     /**
@@ -106,17 +82,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = $this->categoryRepo->myDelete($id);
-        return redirect()->back();
-    }
-
-
-    public function getcategories(){
-         $categories = Category::latest()->get();
-
-         return response()->json([
-             'success'    => true,
-             'categories' => $categories 
-         ]);
+        //
     }
 }

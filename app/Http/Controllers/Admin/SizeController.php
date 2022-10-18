@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Interfaces\ISizeRepository;
+use App\Models\Size;
 use Illuminate\Http\Request;
 
 class SizeController extends Controller
@@ -104,4 +105,13 @@ class SizeController extends Controller
         $brand = $this->sizeRepo->myDelete($id);
         return redirect()->back();
     }
+
+    public function getsizes(){
+        $sizes = Size::latest()->get();
+
+        return response()->json([
+            'success'    => true,
+            'sizes' => $sizes
+        ]);
+   }
 }

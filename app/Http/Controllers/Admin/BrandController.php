@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Interfaces\IBrandRepository;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -106,4 +107,14 @@ class BrandController extends Controller
         $brand = $this->brandRepo->myDelete($id);
         return redirect()->back();
     }
+
+
+    public function getbrands(){
+        $brands = Brand::latest()->get();
+
+        return response()->json([
+            'success'    => true,
+            'brands' => $brands 
+        ]);
+   }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SizeController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,8 +36,12 @@ Route::get('/', function () {
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
     Route::resource('/categories', CategoryController::class);
+    Route::get('/api/categories', [CategoryController::class,'getcategories']);
     Route::resource('/brands', BrandController::class);
+    Route::get('/api/brands', [BrandController::class,'getbrands']);
     Route::resource('/sizes', SizeController::class);
+    Route::get('/api/sizes', [SizeController::class,'getsizes']);
+    Route::resource('/products', ProductController::class);
 });
 
 
