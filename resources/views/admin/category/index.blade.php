@@ -23,11 +23,11 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title mt-2">Category List</h3>
-    
               <div class="card-tools">
                     <a href="{{ route('categories.create')}}" class="btn btn-primary">Add Category</a>
               </div>
             </div>
+           
             <div class="card-body">
               <table class="table table-bordered table-striped" id="dataTable">
                 <thead>
@@ -48,7 +48,7 @@
                             <a href="{{ route('categories.edit',$category->id)}}" class="btn btn-warning btn-sm">Edit</a>
 
 
-                            <a href="javascript:void(0)" class="btn btn-danger btn-sm delete-category"
+                            <a href="javascript:void(0)" class="btn btn-danger btn-sm delete-category ml-2"
                              data-form-id ="category-delete-{{$category->id}}">Delete</a>
 
                             <form id="category-delete-{{$category->id}}" action="{{ route('categories.destroy',$category->id)}}" method="post">
