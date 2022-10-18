@@ -112,8 +112,7 @@ class CategoryController extends Controller
 
 
     public function getcategories(){
-         $categories = Category::latest()->get();
-
+         $categories = $this->categoryRepo->getData();
          return response()->json([
              'success'    => true,
              'categories' => $categories 

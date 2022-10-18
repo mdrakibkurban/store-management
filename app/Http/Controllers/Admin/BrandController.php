@@ -110,7 +110,7 @@ class BrandController extends Controller
 
 
     public function getbrands(){
-        $brands = Brand::latest()->get();
+        $brands = $this->brandRepo->getData();
 
         return response()->json([
             'success'    => true,

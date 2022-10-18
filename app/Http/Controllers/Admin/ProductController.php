@@ -3,19 +3,30 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\IProductRepository;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+
+    protected $productRepo;
+
+    public function __construct(IProductRepository $productRepo)
+    {
+        $this->productRepo = $productRepo;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        $data['products'] = Product::latest()->get();
+        $data['products'] = $this->productRepo->myGet();
         return view('admin.product.index',$data);
     }
 

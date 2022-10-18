@@ -42,4 +42,9 @@ class BaseRepository implements IBaseRepository
             return $data;
         }
     }
+
+
+    public function getData(){
+        return $this->model->latest()->get();
+    }
 }

@@ -22,4 +22,7 @@ export default defineConfig({
             vue: 'vue/dist/vue.esm-bundler.js',
         },
     },
+    // optimizeDeps: {
+    //     include: ['linked-dep', 'Select2', 'jquery']
+    //  },
 });

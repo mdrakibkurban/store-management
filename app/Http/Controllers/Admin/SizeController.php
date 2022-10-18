@@ -107,7 +107,7 @@ class SizeController extends Controller
     }
 
     public function getsizes(){
-        $sizes = Size::latest()->get();
+        $sizes = $this->sizeRepo->getData();
 
         return response()->json([
             'success'    => true,
