@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Interfaces\IProductRepository;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
+
 
 class ProductController extends Controller
 {
@@ -48,7 +51,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name'         => 'required',
+            'category_id'  => 'required',
+            'brand_id'     => 'required',
+            'sku'          => 'required',
+            'cost_price'   => 'required',
+            'retail_price' => 'required',
+            'year'         => 'required',
+            'description'  => 'required',
+            'image'        => 'required',
+        ]);
+ 
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'errors'  => $validator->errors()
+            ],422);
+        }
+        $this->productRepo->productStore($request);
+
     }
 
     /**

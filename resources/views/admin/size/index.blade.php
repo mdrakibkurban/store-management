@@ -46,7 +46,7 @@
                             <a href="{{ route('sizes.edit',$size->id)}}" class="btn btn-warning btn-sm">Edit</a>
 
 
-                            <a href="javascript:void(0)" data-form-id="delete-size-{{ $size->id }}" class="btn btn-danger btn-sm delete-size"
+                            <a href="javascript:void(0)" data-form-id="delete-size-{{ $size->id }}" class="btn btn-danger btn-sm delete-size ml-2"
                              >Delete</a>
  
 

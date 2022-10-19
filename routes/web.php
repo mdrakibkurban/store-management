@@ -36,11 +36,11 @@ Route::get('/', function () {
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
     Route::resource('/categories', CategoryController::class);
-    Route::get('/api/categories', [CategoryController::class,'getcategories']);
+    Route::get('/get-categories', [CategoryController::class,'getcategories']);
     Route::resource('/brands', BrandController::class);
-    Route::get('/api/brands', [BrandController::class,'getbrands']);
+    Route::get('/get-brands', [BrandController::class,'getbrands']);
     Route::resource('/sizes', SizeController::class);
-    Route::get('/api/sizes', [SizeController::class,'getsizes']);
+    Route::get('/get-sizes', [SizeController::class,'getsizes']);
     Route::resource('/products', ProductController::class);
 });
 

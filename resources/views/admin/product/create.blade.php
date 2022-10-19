@@ -18,14 +18,7 @@
 @section('main-content')
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 offset-2">
-            <!-- general form elements -->
-           <product_create></product_create>
-         
-
-          </div>
-    </div>
-    <!-- /.row -->
+    <!-- general form elements -->
+      <product_create></product_create>  
   </div><!-- /.container-fluid -->
 @endsection

@@ -17,7 +17,7 @@ class SizeSeeder extends Seeder
     public function run()
     {
         $facker = Factory::create();
-          foreach(range(1,10) as $item){
+          foreach(range(1,3) as $item){
             Size::create([
                 'size' => $facker->name,
             ]);

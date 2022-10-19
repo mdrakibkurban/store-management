@@ -46,7 +46,7 @@
                             <a href="{{ route('brands.edit',$brand->id)}}" class="btn btn-warning btn-sm">Edit</a>
 
 
-                            <a href="javascript:void(0)" data-form-id="delete-brand-{{ $brand->id }}" class="btn btn-danger btn-sm delete-brand"
+                            <a href="javascript:void(0)" data-form-id="delete-brand-{{ $brand->id }}" class="btn btn-danger btn-sm delete-brand ml-2"
                              >Delete</a>
  
 

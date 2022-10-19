@@ -20,6 +20,8 @@
         "@ckeditor/ckeditor5-build-classic": "^35.2.1",
         "@ckeditor/ckeditor5-vue": "^4.0.1",
         "@vitejs/plugin-vue": "^3.1.2",
+        "sweetalert2": "^11.6.0",
+        "toastr": "^2.1.4",
         "vue": "^3.2.36",
         "vue-loader": "^17.0.0",
         "vue3-select2-component": "^0.1.7",
