@@ -63,14 +63,28 @@ const store = createStore({
                     productForm.sku           = '', 
                     productForm.year          = '', 
                     productForm.description   = '', 
-                        
-                Toast.fire({
+                         
+                 Toast.fire({
                     icon: 'success',
                     title: 'product save success'
                   })
              }).catch((error)=>{
                 context.commit('ERRORS',error.response.data.errors)
              })
+        },
+
+
+        updateProduct(context, payload){
+            axios.put(`/products/${payload.id}`, payload.data).then((res)=>{  
+                Toast.fire({
+                   icon: 'success',
+                   title: 'product update success'
+                 })
+
+                 window.location.href = '/products';
+            }).catch((error)=>{
+               context.commit('ERRORS',error.response.data.errors)
+            })
         },
 
         getCategory(context){

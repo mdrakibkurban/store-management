@@ -6,10 +6,6 @@
             <div class="card">
                <div class="card-header">
                   <h3 class="card-title mt-2">Product Create</h3>
-   
-                  <div class="card-tools">
-                     <a href="" class="btn btn-success"><i class="fas fa-list"></i> Product List</a>
-                  </div>
                </div>
    
                <div class="card-body">

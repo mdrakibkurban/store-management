@@ -42,6 +42,8 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::resource('/sizes', SizeController::class);
     Route::get('/get-sizes', [SizeController::class,'getsizes']);
     Route::resource('/products', ProductController::class);
+    Route::get('/products/active/{id}', [ProductController::class,'active']);
+    Route::get('/products/inactive/{id}', [ProductController::class,'inactive']);
 });
 
 

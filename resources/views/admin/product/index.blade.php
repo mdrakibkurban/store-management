@@ -32,20 +32,37 @@
               <table class="table table-bordered table-striped" id="dataTable">
                 <thead>
                   <tr>
-                    <th style="width: 20px">#</th>
-                    <th>product Name</th>
-                    <th style="width: 120px">Action</th>
+                    <th style="width: 10px">#</th>
+                    <th class="text-center">image</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>brand</th>
+                    <th>sku</th>
+                    <th>status</th>
+                    <th style="width: 170px">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                     @foreach ($products as $product)
                     <tr>
-                        <td style="width: 20px">{{ $loop->iteration }}</td>
-                        <td>{{ $product->name }}</td>
-                        <td style="width: 120px">
-                            <a href="{{ route('products.edit',$product->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                        <td style="width: 10px">{{ $loop->iteration }}</td>
+                        <td class="text-center"><img width="50" src="{{ asset("uploads/products/$product->image") }}" alt=""></td>
+                        <td>{{ $product->name ?? '' }}</td>
+                        <td>{{ $product->category->name ?? '' }}</td>
+                        <td>{{ $product->brand->name ?? '' }}</td>
+                        <td>{{ $product->sku ?? '' }}</td>
+                        <td>
+                            @if($product->status == 1)
+                              <a href="{{ url("products/inactive",$product->id) }}" onclick="return confirm('Are you sure change status?')" class="badge badge-primary">Active</a>   
+                            @else
+                              <a href="{{ url("products/active",$product->id) }}" onclick="return confirm('Are you sure change status?')" class="badge badge-danger">Inactive</a>  
+                            @endif
+                        </td>
+                        <td style="width: 170px">
+                          <a href="{{ route('products.show',$product->id)}}" class="btn btn-primary btn-sm">Details</a>
 
-
+                          <a href="{{ route('products.edit',$product->id)}}" class="btn btn-warning  btn-sm ml-2">Edit</a>
+      
                             <a href="javascript:void(0)" class="btn btn-danger btn-sm delete-product ml-2"
                              data-form-id ="product-delete-{{$product->id}}">Delete</a>
 
@@ -68,8 +85,6 @@
     <!-- /.row -->
   </div><!-- /.container-fluid -->
 @endsection
-
-
 
 
 

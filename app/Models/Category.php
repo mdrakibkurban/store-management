@@ -9,11 +9,8 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function toArray(){
-         return [
-            'id' => $this->id,
-            'name' => $this->name
-         ];
+    public function products(){
+        return $this->hasMany(Product::class);
     }
    
 }
