@@ -4,15 +4,19 @@ import axios from 'axios';
 const store = createStore({
   state () {
     return {
+       productData  : [],
        categoryData : [],
        brandData    : [],
        sizeData     : [],  
        errors       : [],
-       is_error    : false,
+       is_error     : false,
     }
   },
 
     getters:{
+        products(state){
+            return state.productData;
+        },
         categories(state){
             return state.categoryData;
         },
@@ -33,6 +37,9 @@ const store = createStore({
 
     mutations: {
        
+        GET_PRODUCT(state,data){
+            state.productData = data;
+        },
         GET_CATEGORY(state,data){
             state.categoryData = data;
         },
@@ -52,6 +59,12 @@ const store = createStore({
     },
 
     actions:{
+
+        getProducts(context){
+             axios.get('/get-products').then((res)=>{
+                 context.commit("GET_PRODUCT",res.data.products);
+             })
+        },
 
         addProduct(context, productForm){
              axios.post('/products', productForm).then((res)=>{

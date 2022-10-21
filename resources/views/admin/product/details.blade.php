@@ -106,7 +106,7 @@
                             <td>Location</td>
                             <td>Quantity</td>
                         </tr>
-                        @foreach($product->product_stocks as $p_stock)
+                        @foreach($product->product_size_stocks as $p_stock)
                             <tr>
                                 <td>{{  $p_stock->size->size ?? ''}}</td>
                                 <td>{{  $p_stock->location ?? ''}}</td>

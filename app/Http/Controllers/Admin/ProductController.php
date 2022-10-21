@@ -159,4 +159,14 @@ class ProductController extends Controller
          flash('product Inactive success')->success();
          return redirect()->back();
    }
+
+
+    public function getProducts(){
+        $product = Product::with('product_size_stocks.size')->get();
+
+        return response()->json([
+            'success'  => true,
+            'products' =>  $product
+        ]);
+    }
 }

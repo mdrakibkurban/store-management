@@ -20,7 +20,7 @@ class ProductRepository extends BaseRepository implements IProductRepository
     }
 
     public function productFind($id){
-        $data = $this->model->latest()->with('category','brand','product_stocks.size')->find($id);;
+        $data = $this->model->latest()->with('category','brand','product_size_stocks.size')->find($id);
         if(!$data){
             return null;
             flash('Data Not Found')->error();

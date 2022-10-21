@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SizeController;
+use App\Http\Controllers\Admin\StocksController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,6 +45,12 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::resource('/products', ProductController::class);
     Route::get('/products/active/{id}', [ProductController::class,'active']);
     Route::get('/products/inactive/{id}', [ProductController::class,'inactive']);
+    Route::get('/get-products', [ProductController::class,'getProducts']);
+    
+
+    Route::get('/stocks', [StocksController::class,'stocks'])->name('stocks');
+    Route::post('/stocks', [StocksController::class,'store'])->name('stocks');
+  
 });
 
 

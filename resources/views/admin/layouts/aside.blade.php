@@ -74,6 +74,15 @@
                 </p>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a href="{{ route('stocks')}}" class="nav-link {{ (request()->is('stocks')) ? 'active' : '' }}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Stock
+                </p>
+              </a>
+            </li>
           
         
         </ul>

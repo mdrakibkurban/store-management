@@ -7,6 +7,7 @@ import CKEditor from '@ckeditor/ckeditor5-vue';
 import App from './App.vue'
 import ProductCreate from './product/Create.vue'
 import ProductUpdate from './product/Update.vue'
+import StockManage from './stock/StockManage.vue'
 
 import Swal from 'sweetalert2'
 window.Swal = Swal;
@@ -28,4 +29,5 @@ const app = createApp({})
 app.component('app', App)
 app.component('product_create',ProductCreate)
 app.component('product_update',ProductUpdate)
+app.component('stock-manage',StockManage)
 app.use(store).use(CKEditor).mount('#app')
