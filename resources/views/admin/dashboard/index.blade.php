@@ -122,5 +122,6 @@
           </div>
         <!-- /.col -->
       </div>
-  </div><!-- /.container-fluid -->
+  </div>
+</div><!-- /.container-fluid -->
 @endsection
