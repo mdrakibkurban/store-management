@@ -6,7 +6,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="#" class="d-block">
+          <a href="javascript:void(0)" class="d-block">
             <i class="nav-icon fas fa-user "></i>
             {{ strtoUpper(auth()->user()->name ?? '') }}
           </a>
