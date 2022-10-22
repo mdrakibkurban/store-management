@@ -33,12 +33,12 @@
                 <thead>
                   <tr>
                     <th style="width: 10px">#</th>
-                    <th class="text-center">image</th>
+                    <th class="text-center">Image</th>
                     <th>Name</th>
                     <th>Category</th>
-                    <th>brand</th>
-                    <th>sku</th>
-                    <th>status</th>
+                    <th>Brand</th>
+                    <th>Sku</th>
+                    <th>Status</th>
                     <th style="width: 170px">Action</th>
                   </tr>
                 </thead>

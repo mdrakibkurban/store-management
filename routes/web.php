@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReturnProductController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\StocksController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,22 +22,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
-
-// Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
-// ->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('dashboard');
-//     })->name('dashboard');
-
-    
-// });
-
-
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+    Route::resource('/users', UserController::class);
     Route::resource('/categories', CategoryController::class);
     Route::get('/get-categories', [CategoryController::class,'getcategories']);
     Route::resource('/brands', BrandController::class);
