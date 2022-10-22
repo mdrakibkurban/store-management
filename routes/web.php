@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReturnProductController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\StocksController;
 use Illuminate\Support\Facades\Route;
@@ -49,7 +50,12 @@ Route::middleware('auth:sanctum')->group(function(){
     
 
     Route::get('/stocks', [StocksController::class,'stocks'])->name('stocks');
-    Route::post('/stocks', [StocksController::class,'store'])->name('stocks');
+    Route::post('/stocks', [StocksController::class,'store']);
+    Route::get('/stocks/history', [StocksController::class,'history']);
+
+    Route::get('/return-product', [ReturnProductController::class,'returnProduct']);
+    Route::post('/return-products', [ReturnProductController::class,'store']);
+    Route::get('/return-product-list', [ReturnProductController::class,'history']);
   
 });
 

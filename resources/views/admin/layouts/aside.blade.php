@@ -83,6 +83,35 @@
                 </p>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a href="{{ url('/stocks/history')}}" class="nav-link {{ (request()->is('stocks/history')) ? 'active' : '' }}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Stock History
+                </p>
+              </a>
+            </li>
+
+
+
+            <li class="nav-item">
+              <a href="{{ url('/return-product')}}" class="nav-link {{ (request()->is('return-product')) ? 'active' : '' }}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Return Product
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{ url('/return-product-list')}}" class="nav-link {{ (request()->is('return-product-list')) ? 'active' : '' }}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Return Product Hisory
+                </p>
+              </a>
+            </li>
           
         
         </ul>

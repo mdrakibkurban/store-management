@@ -100,7 +100,7 @@ export default {
 
       methods:{
         selectedProduct(event){
-            // this.stockForm.items = [];
+            this.stockForm.items = [];
             let id = event.target.value;
             let product = this.products.filter(product=> product.id == id)
             product[0].product_size_stocks.map((stock) => {

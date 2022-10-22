@@ -8,6 +8,7 @@ import App from './App.vue'
 import ProductCreate from './product/Create.vue'
 import ProductUpdate from './product/Update.vue'
 import StockManage from './stock/StockManage.vue'
+import ReturnProduct from './return_product/ReturnProduct.vue'
 
 import Swal from 'sweetalert2'
 window.Swal = Swal;
@@ -30,4 +31,5 @@ app.component('app', App)
 app.component('product_create',ProductCreate)
 app.component('product_update',ProductUpdate)
 app.component('stock-manage',StockManage)
+app.component('return-product',ReturnProduct)
 app.use(store).use(CKEditor).mount('#app')
